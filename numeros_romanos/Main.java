@@ -1,5 +1,4 @@
 import java.util.Scanner;
-
 public class Main {
    
     public static void main(String[] args) {
@@ -10,5 +9,20 @@ public class Main {
         
         String[] vRomano = {"M","CM","D","CD","C","XC","L","XL","X","IX","V","IV","I"};
         
+        System.out.println("Escreva os númeors que quer converter: ");
+
+        while(true){
+            int num = leitor.nextInt();
+            if(num == 0) break;
+            System.out.printf("O número em romano fica %-1d: ",num);
+            int i = 0;
+            while (num > 0) {
+                if(num >= vNum[i]){
+                    System.out.printf(vRomano[i]);       
+                }else{
+                    i++;
+                }
+            }
+        }
     }
 }
