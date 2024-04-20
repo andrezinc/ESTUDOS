@@ -18,7 +18,8 @@ public class Main {
             int i = 0;
             while (num > 0) {
                 if(num >= vNum[i]){
-                    System.out.printf(vRomano[i]);       
+                    System.out.printf(vRomano[i]);  
+                    num -= vNum[i];     
                 }else{
                     i++;
                 }
