@@ -8,6 +8,17 @@ int main(){
 
 	std::string romanos[20] = {"M","D","CD","C","XC","L","XL","X","IX","V","IV","I"};
 	int numeros[20]=          {1000,500,400,100,90,  50,  40 , 10 , 9 , 5  , 4  , 1};
-		
-		std::cout<<romanos[i]<<std::endl;
+	std::cin>>numero;
+	int i=0;
+	while(numero){
+		if(numero>=numeros[i]){
+			std::cout<<romanos[i];
+			numero=numero-numeros[i];
+		}
+		else{
+			i++;
+		}
+
+	}
+			
 }
