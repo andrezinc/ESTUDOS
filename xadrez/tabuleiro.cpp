@@ -1,7 +1,8 @@
 #include <iostream>
 #include <math.h>
 #include <string.h>
-
+#include <vector>
+class Personagem{
 	private:
 	int Maltura,Mlargura;
 	int MposX=0,MposY=0;
@@ -37,23 +38,28 @@
 			Mlargura=largura;
 			Maltura=altura;
 		}
-	void impressao(){
-		int i,j;
-		for(i=0;i<Maltura;i++){
-			for(j=0;j<Mlargura;j++){
-				if(MposY-1==i && MposX-1==j){
-				std::cout<<"["<<Mdesenho<<"]";
-				}
-				else{
-				std::cout<<"[.]";
-				}
-				}
-			std::cout<<std::endl;
-			}
-	}
 };
 int main(){
+	int i,j,k;
+	std::vector <Personagem> meuspersonagens;
+
 	Personagem andre(3,3,"X");
 	andre.valoresTabuleiro(3,3);
-	andre.impressao();
+	Personagem joao(2,1,"O");
+	meuspersonagens.push_back(andre);
+	meuspersonagens.push_back(joao);
+
+	for(i=0;i<meuspersonagens.size();i++){
+		for(j=0;j<8;j++){
+			for(k=0;k<8;k++){
+				if(meuspersonagens[i].getY()-1==j && meuspersonagens[i].getY()-1==k){
+					std::cout<<"["<<meuspersonagens[i].getDesenho()<<"]";
+				}
+				else{
+					std::cout<<"[.]";
+				}
+			  }
+			std::cout<<std::endl;
+			}	
+		}
 }
