@@ -2,12 +2,19 @@
 #include <math.h>
 #include <string.h>
 
-class tabuleiro{
 	private:
 	int Maltura,Mlargura;
-	int MposX,MposY;
+	int MposX=0,MposY=0;
 	std::string Mdesenho;
 	public:
+	Personagem(){
+
+	}
+	Personagem(int posX,int posY,std::string desenho){
+		setX(posX);
+		setY(posY);
+		setDesenho(desenho);
+	}
 	void setX(int posX){
 		MposX=posX;
 	}
@@ -26,7 +33,7 @@ class tabuleiro{
 	std::string getDesenho(){
 		return Mdesenho;
 	}
-	void valores(int largura, int altura){
+	void valoresTabuleiro(int largura, int altura){
 			Mlargura=largura;
 			Maltura=altura;
 		}
@@ -34,14 +41,19 @@ class tabuleiro{
 		int i,j;
 		for(i=0;i<Maltura;i++){
 			for(j=0;j<Mlargura;j++){
+				if(MposY-1==i && MposX-1==j){
+				std::cout<<"["<<Mdesenho<<"]";
+				}
+				else{
 				std::cout<<"[.]";
+				}
 				}
 			std::cout<<std::endl;
 			}
 	}
 };
 int main(){
-	tabuleiro xadrez;
-	xadrez.valores(4,4);
-	xadrez.impressao();
+	Personagem andre(3,3,"X");
+	andre.valoresTabuleiro(3,3);
+	andre.impressao();
 }
