@@ -8,10 +8,12 @@ public class Main {
 
         Tabuleiro tabuleiro = new Tabuleiro();
         Inimigo inimigo1 = new Inimigo("X", "\u001B[31m");
-        Player player1 = new Player("O", "\u001B[33m");
-
+        Player player1 = new Player("O", "\u001B[32m");
+        int fechar;
+        
+        do {
+            
             System.out.println("---As casas do tabuleiro vão de 0 a 4---");
-    
             System.out.print("Player, digite a casa em que deseja colocar o pião (Linha/Coluna): ");
             int player1Linha = scanner.nextInt();
             int player1Coluna = scanner.nextInt();
@@ -25,7 +27,11 @@ public class Main {
             tabuleiro.colocarJogador(inimigo1, inimigo1Linha, inimigo1Coluna);
     
             tabuleiro.exibirTabuleiro();
-          
+
+            System.out.print("Para sair digite 5 ou qualquer outro número para continuar!");
+            fechar = scanner.nextInt();
+        } while (fechar != 5);
+          scanner.close();
         }
 }
 
