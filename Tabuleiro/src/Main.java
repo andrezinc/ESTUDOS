@@ -1,31 +1,31 @@
 import java.util.Scanner;
 
 public class Main {
+
     public static void main(String[] args) {
 
         Scanner scanner = new Scanner(System.in);
 
-            Jogador jogador1 = new Jogador('O');
-            
+        Tabuleiro tabuleiro = new Tabuleiro();
+        Inimigo inimigo1 = new Inimigo("X", "\u001B[31m");
+        Player player1 = new Player("O", "\u001B[33m");
 
-            System.out.println("----Linhas e Colunas vão de 0 a 4----");
-            System.out.print("Jogador 1, digite a casa em qual deseja colocar o pião(Linha/Coluna): ");
+            System.out.println("---As casas do tabuleiro vão de 0 a 4---");
+    
+            System.out.print("Player, digite a casa em que deseja colocar o pião (Linha/Coluna): ");
             int player1Linha = scanner.nextInt();
             int player1Coluna = scanner.nextInt();
-            jogador1.Simbolo(player1Linha, player1Coluna);
-
-            /*System.out.print("Jogador 2, digita a casa em qual deseja colocar o pião(Linha/Coluna): ");
-            int player2Linha = scanner.nextInt();
-            int player2Coluna = scanner.nextInt();
-            jogador1.Simbolo(player2Linha, player2Coluna);*/
-
-            for (int linha = 0; linha < 5; linha++)
-            {
-                System.out.println();
-                for (int coluna = 0; coluna < 5; coluna++) {
-                    System.out.print("[" + jogador1.getPosicao(linha, coluna) + jogador2.getPosicao(linha, coluna) + "]");
-
-                }
-            }
-    }
+            player1.Simbolo(player1Linha, player1Linha);
+            tabuleiro.colocarJogador(player1, player1Linha, player1Coluna);
+    
+            System.out.print("Inimigo, digite a casa em que deseja colocar o pião (Linha/Coluna): ");
+            int inimigo1Linha = scanner.nextInt();
+            int inimigo1Coluna = scanner.nextInt();
+            inimigo1.Simbolo(inimigo1Linha, inimigo1Coluna);
+            tabuleiro.colocarJogador(inimigo1, inimigo1Linha, inimigo1Coluna);
+    
+            tabuleiro.exibirTabuleiro();
+          
+        }
 }
+

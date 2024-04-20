@@ -1,11 +1,17 @@
 
 class Jogador {
-    private char simbolo;
+    private String simbolo;
     private int posX;
     private int posY;
+    private String cor;
 
-    public Jogador(char desenho) {
-        this.simbolo = desenho;
+    public Jogador(){
+        
+    }
+
+    public Jogador(String simbolo, String cor) {
+        this.simbolo = simbolo;
+        this.cor = cor;
     }
 
     public void Simbolo(int x, int y) {
@@ -13,11 +19,23 @@ class Jogador {
         this.posY = y;
     }
 
-    public char getPosicao(int x, int y) {
+    public int getPosX() {
+        return posX;
+    }
+
+    public String getSimbolo() {
+        return simbolo;
+    }
+
+    public int getPosY() {
+        return posY;
+    }
+
+    public String getPosicao(int x, int y) {
         if (x == posX && y == posY) {
-            return simbolo;
+            return simbolo + cor + "\u001B[0m";
         } else {
-            return ' ';
+            return " ";
         }
     }
 }
